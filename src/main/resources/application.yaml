@@ -9,7 +9,15 @@ spring:
     username: sa
     password:
       driver-class-name: org.h2.Driver
+  output:
+    ansi:
+      enabled: always
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        highlight_sql: true
+        use_sql_comments: true
