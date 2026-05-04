@@ -1,3 +1,8 @@
 spring:
   application:
     name: back
+  datasource:
+    url: jdbc:h2:./db_dev;MODE=MYSQL
+    username: sa
+    password:
+      driver-class-name: org.h2.Driver
