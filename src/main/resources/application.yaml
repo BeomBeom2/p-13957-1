@@ -1,8 +1,11 @@
+server:
+  port: 8090
+
 spring:
   application:
     name: back
   datasource:
-    url: jdbc:h2:./db_dev;MODE=MYSQL
+    url: jdbc:h2:./db_dev;MODE=MYSQL;AUTO_SERVER=TRUE
     username: sa
     password:
       driver-class-name: org.h2.Driver
