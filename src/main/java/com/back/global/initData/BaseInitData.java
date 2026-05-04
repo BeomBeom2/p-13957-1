@@ -3,6 +3,7 @@ package com.back.global.initData;
 import com.back.domain.post.post.entity.Post;
 import com.back.domain.post.post.repository.PostRepository;
 import com.back.domain.post.post.service.PostService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
@@ -11,13 +12,9 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Optional;
 
 @Configuration //빈, 내부에 @Bean 메서드 가질 수 있음
+@AllArgsConstructor
 public class BaseInitData {
     private PostService postService;
-
-    @Autowired
-    public BaseInitData(PostService postService) {
-        this.postService = postService;
-    }
 
     @Bean //메서드는 스프링 부트가 시작할 때 자동으로 실행된다.
     ApplicationRunner baseInitDataApplicationRunner() {
