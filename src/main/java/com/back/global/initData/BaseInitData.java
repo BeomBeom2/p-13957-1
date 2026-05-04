@@ -12,8 +12,12 @@ import java.util.Optional;
 
 @Configuration //빈, 내부에 @Bean 메서드 가질 수 있음
 public class BaseInitData {
-    @Autowired
     private PostService postService;
+
+    @Autowired
+    public BaseInitData(PostService postService) {
+        this.postService = postService;
+    }
 
     @Bean //메서드는 스프링 부트가 시작할 때 자동으로 실행된다.
     ApplicationRunner baseInitDataApplicationRunner() {
