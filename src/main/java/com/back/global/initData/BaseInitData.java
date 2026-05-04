@@ -4,6 +4,7 @@ import com.back.domain.post.post.entity.Post;
 import com.back.domain.post.post.repository.PostRepository;
 import com.back.domain.post.post.service.PostService;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
@@ -12,9 +13,10 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Optional;
 
 @Configuration //빈, 내부에 @Bean 메서드 가질 수 있음
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class BaseInitData {
-    private PostService postService;
+    private final PostService postService;
+    private int callCount = 0;
 
     @Bean //메서드는 스프링 부트가 시작할 때 자동으로 실행된다.
     ApplicationRunner baseInitDataApplicationRunner() {
@@ -22,6 +24,8 @@ public class BaseInitData {
         return args -> {
             work1();
             work2();
+
+            callCount++;
         };
     }
 
