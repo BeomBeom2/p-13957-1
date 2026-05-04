@@ -18,4 +18,9 @@ public class Post {
     private final String title; //VARCHAR(255) 이걸 JPA 가 해준다.
     @Column(columnDefinition = "TEXT")
     private final String content;
+
+    public Post() {
+        this.title = "";
+        this.content = "";
+    }
 }
