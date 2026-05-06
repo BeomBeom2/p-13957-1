@@ -1,7 +1,13 @@
 package com.back.domain.post.post.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
@@ -10,11 +16,14 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @NoArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
 public class Post {
     @Id //PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) //AUTO_INCREMENT
     private int id; // INT
+    @CreatedDate
     private LocalDateTime createDate;
+    @LastModifiedDate
     private LocalDateTime modifyDate;
     private String title; //VARCHAR(255) 이걸 JPA 가 해준다.
     @Column(columnDefinition = "TEXT")
