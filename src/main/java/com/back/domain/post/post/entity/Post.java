@@ -1,5 +1,6 @@
 package com.back.domain.post.post.entity;
 
+import com.back.global.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,14 +18,7 @@ import java.time.LocalDateTime;
 @ToString
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class Post {
-    @Id //PK
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //AUTO_INCREMENT
-    private int id; // INT
-    @CreatedDate
-    private LocalDateTime createDate;
-    @LastModifiedDate
-    private LocalDateTime modifyDate;
+public class Post extends BaseEntity {
     private String title; //VARCHAR(255) 이걸 JPA 가 해준다.
     @Column(columnDefinition = "TEXT")
     private String content;
