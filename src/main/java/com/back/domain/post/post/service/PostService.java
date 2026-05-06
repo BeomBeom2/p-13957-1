@@ -26,9 +26,22 @@ public class PostService {
     }
 
     public void modify(Post post, String title, String content) {
+        boolean changed = false;
+
+        if(!post.getTitle().equals(title) ) {
+            post.setTitle(title);
+            changed = true;
+        }
+
+        if(!post.getContent().equals(content) ) {
+            post.setContent(content);
+            changed = true;
+        }
+
         post.setTitle(title);
         post.setContent(content);
-        post.setModifyDate(LocalDateTime.now());
+
+        if(changed) post.setModifyDate(LocalDateTime.now());
 
         postRepository.save(post);
     }
