@@ -1,4 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:dev_test;MODE=MySQL
-    ### mem은 휘발성이 되는 메모리로 사용하겠다는 것.
+    url: jdbc:h2:mem:db_test;MODE=MySQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver

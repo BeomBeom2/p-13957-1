@@ -29,4 +29,11 @@ public class PostService {
         post.setTitle(title);
         post.setContent(content);
     }
+
+    public Post write(String title, String content) {
+        Post post = new Post(title, content);
+        postRepository.save(post);
+
+        return post;
+    }
 }
